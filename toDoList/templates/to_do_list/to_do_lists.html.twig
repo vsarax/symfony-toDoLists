@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}To do lists{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>Your to do lists</h1>
+    </header>
+    <main>
+        {% block content %}
+            <ul class="list">
+                {% for to_do_list in to_do_lists %}
+                    <li>
+                        <div class="list-item">
+                            <a href="{{ path('list', {'id': to_do_list.id}) }}">{{ to_do_list.title }}</a>
+                            <form action="{{ path('delete_list', {'id': to_do_list.id}) }}" method="POST" class="delete-form">
+                                <button type="submit" class="delete-button">x</button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endblock %}
+    </main>
+    <aside class="form">
+        <div class="form-background-task">
+            <h2>Add New List</h2>
+            <form action="{{ path('create_list') }}" method="POST">
+                <div class="form-group">
+                    <input type="text" id="myInput" name="title">
+                </div>
+                <div class="button-submit-container">
+                    <button class="button" type="submit">Add List</button>
+                </div>
+            </form>
+        </div>
+    </aside>
+{% endblock %}

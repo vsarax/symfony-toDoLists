@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header>
+        <h1>Welcome</h1>
+    </header>
+    <main>
+        {% block content %}
+            <h2 class="index-h2">Register and make your own to do lists!</h2>
+            <div class="button-container">
+                <button class="button" onclick="window.location.href='{% if app.user %}/todolists{% else %}/register{% endif %}'">
+                    {{ app.user ? 'See your lists' : 'Register' }}
+                </button>
+            </div>
+        {% endblock %}
+    </main>
+{% endblock %}

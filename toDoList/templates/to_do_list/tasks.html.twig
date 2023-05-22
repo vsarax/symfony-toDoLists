@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tasks{% endblock %}
+
+{% block body %}
+    <header>
+        <h1>Tasks</h1>
+    </header>
+    <main>
+        {% block content %}
+            <div class="task-list">
+                <h2 class="tasks-h2">To do</h2>
+                {% for task in tasks %}
+                    <div class="task">
+                        <label class="task-name">
+                            {{ task.name }}
+                        </label>
+                        <form action="{{ path('task_completed', {'id': task.id}) }}" method="POST">
+                            <button type="submit">✔</button>
+                        </form>
+                    </div>
+                {% endfor %}
+
+                <h3>Done</h3>
+                {% for completed_task in completed_tasks %}
+                    <div class="completed-task">
+                        <label>
+                            {{ completed_task.name }}
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endblock %}
+    </main>
+    <aside class="form">
+        <div class="form-background-task">
+            <h2>Add New Task</h2>
+            <form action="{{ path('create_task', {'to_do_list_id': to_do_list.id}) }}" method="POST">
+                <div class="form-group">
+                    <input type="text" id="myInput" name="name">
+                </div>
+                <div class="button-submit-container">
+                    <button class="button" type="submit">Add Task</button>
+                </div>
+            </form>
+        </div>
+    </aside>
+{% endblock %}
