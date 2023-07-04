@@ -15,7 +15,7 @@
                         <label class="task-name">
                             {{ task.name }}
                         </label>
-                        <form action="{{ path('task_completed', {'id': task.id}) }}" method="POST">
+                        <form action="{{ path('taskCompleted', {'id': task.id}) }}" method="POST">
                             <button type="submit">✔</button>
                         </form>
                     </div>
@@ -35,7 +35,7 @@
     <aside class="form">
         <div class="form-background-task">
             <h2>Add New Task</h2>
-            <form action="{{ path('create_task', {'to_do_list_id': to_do_list.id}) }}" method="POST">
+            <form action="{{ path('taskCompleted', {'id': to_do_list.id}) }}" method="POST">
                 <div class="form-group">
                     <input type="text" id="myInput" name="name">
                 </div>

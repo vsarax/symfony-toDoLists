@@ -13,7 +13,7 @@ class SecurityController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->getUser()) {
-            return $this->redirectToRoute('to_do_lists');
+            return $this->redirectToRoute('toDoList');
         }
 
         $error = $authenticationUtils->getLastAuthenticationError();

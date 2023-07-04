@@ -13,7 +13,7 @@
                     <li>
                         <div class="list-item">
                             <a href="{{ path('list', {'id': to_do_list.id}) }}">{{ to_do_list.title }}</a>
-                            <form action="{{ path('delete_list', {'id': to_do_list.id}) }}" method="POST" class="delete-form">
+                            <form action="{{ path('deleteList', {'id': to_do_list.id}) }}" method="POST" class="delete-form">
                                 <button type="submit" class="delete-button">x</button>
                             </form>
                         </div>
@@ -25,7 +25,7 @@
     <aside class="form">
         <div class="form-background-task">
             <h2>Add New List</h2>
-            <form action="{{ path('create_list') }}" method="POST">
+            <form action="{{ path('createList') }}" method="POST">
                 <div class="form-group">
                     <input type="text" id="myInput" name="title">
                 </div>
